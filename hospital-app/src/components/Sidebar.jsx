@@ -98,7 +98,6 @@ function Sidebar({ isOpen, closeSidebar }) {
               <NavLink
                 key={item.path}
                 to={item.path}
-                onClick={closeSidebar}
                 className={({ isActive }) =>
                   `sidebar-link ${isActive ? "active" : ""}`
                 }
@@ -122,7 +121,6 @@ function Sidebar({ isOpen, closeSidebar }) {
               <NavLink
                 key={item.path}
                 to={item.path}
-                onClick={closeSidebar}
                 className={({ isActive }) =>
                   `sidebar-link ${isActive ? "active" : ""}`
                 }

@@ -4,7 +4,8 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
 function MainLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  // Sidebar Dashboard par by default open rahega
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <div className="app-layout">
@@ -15,7 +16,7 @@ function MainLayout() {
 
       <div className="main-area">
         <Navbar
-          onMenuClick={() => setSidebarOpen(!sidebarOpen)}
+          onMenuClick={() => setSidebarOpen((prev) => !prev)}
         />
 
         <main className="page-content">

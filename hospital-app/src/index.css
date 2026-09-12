@@ -2485,14 +2485,14 @@ td strong {
 
 .navbar-search {
   flex: 1;
-  max-width: 470px;
+  max-width: 250px;
   height: 42px;
   display: flex;
   align-items: center;
   gap: 9px;
   padding: 0 13px;
   border: 1px solid #e0e8e6;
-  border-radius: 9px;
+  border-radius: 20px;
   background: #f7f9f8;
   color: #82908c;
 }

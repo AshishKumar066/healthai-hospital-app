@@ -7,122 +7,140 @@ import {
   Building2,
   Pill,
   FileText,
-  Receipt,
-  Siren,
+  CreditCard,
   Settings,
-  Activity,
+  X,
+  HeartPulse,
 } from "lucide-react";
 
-function Sidebar() {
-  const menuItems = [
-    {
-      title: "Dashboard",
-      path: "/",
-      icon: LayoutDashboard,
-    },
-    {
-      title: "Patients",
-      path: "/patients",
-      icon: Users,
-    },
-    {
-      title: "Doctors",
-      path: "/doctors",
-      icon: Stethoscope,
-    },
-    {
-      title: "Appointments",
-      path: "/appointments",
-      icon: CalendarDays,
-    },
-    {
-      title: "Departments",
-      path: "/departments",
-      icon: Building2,
-    },
-    {
-      title: "Prescriptions",
-      path: "/prescriptions",
-      icon: Pill,
-    },
-    {
-      title: "Medical Records",
-      path: "/medical-records",
-      icon: FileText,
-    },
-    {
-      title: "Billing",
-      path: "/billing",
-      icon: Receipt,
-    },
-  ];
+const mainMenu = [
+  {
+    name: "Dashboard",
+    path: "/",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "Patients",
+    path: "/patients",
+    icon: Users,
+  },
+  {
+    name: "Doctors",
+    path: "/doctors",
+    icon: Stethoscope,
+  },
+  {
+    name: "Appointments",
+    path: "/appointments",
+    icon: CalendarDays,
+  },
+  {
+    name: "Departments",
+    path: "/departments",
+    icon: Building2,
+  },
+  {
+    name: "Prescriptions",
+    path: "/prescriptions",
+    icon: Pill,
+  },
+  {
+    name: "Medical Records",
+    path: "/medical-records",
+    icon: FileText,
+  },
+  {
+    name: "Billing",
+    path: "/billing",
+    icon: CreditCard,
+  },
+];
 
+const systemMenu = [
+  {
+    name: "Settings",
+    path: "/settings",
+    icon: Settings,
+  },
+];
+
+function Sidebar({ isOpen, closeSidebar }) {
   return (
-    <aside className="sidebar">
-      <div className="sidebar-logo">
-        <div className="logo-icon">
-          <Activity size={23} />
+    <aside className={`sidebar ${isOpen ? "sidebar-open" : ""}`}>
+      <div className="sidebar-header">
+        <div className="sidebar-brand">
+          <div className="brand-icon">
+            <HeartPulse size={20} />
+          </div>
+
+          <div>
+            <strong>HealthAI</strong>
+            <span>Healthcare Platform</span>
+          </div>
         </div>
 
-        <div>
-          <h2>HealthAI</h2>
-          <span>Hospital System</span>
-        </div>
+        <button
+          className="sidebar-close"
+          onClick={closeSidebar}
+        >
+          <X size={20} />
+        </button>
       </div>
 
-      <div className="menu-title">MAIN MENU</div>
+      <div className="sidebar-content">
+        <span className="menu-label">MAIN MENU</span>
 
-      <nav className="sidebar-menu">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
+        <nav>
+          {mainMenu.map((item) => {
+            const Icon = item.icon;
 
-          return (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                isActive ? "menu-item active" : "menu-item"
-              }
-            >
-              <Icon size={19} />
-              <span>{item.title}</span>
-            </NavLink>
-          );
-        })}
-      </nav>
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeSidebar}
+                className={({ isActive }) =>
+                  `sidebar-link ${isActive ? "active" : ""}`
+                }
+              >
+                <Icon size={19} />
+                <span>{item.name}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
 
-      <div className="menu-title">SYSTEM</div>
+        <span className="menu-label system-label">
+          SYSTEM
+        </span>
 
-      <nav className="sidebar-menu">
-        <NavLink
-          to="/emergency"
-          className={({ isActive }) =>
-            isActive ? "menu-item emergency-link active" : "menu-item emergency-link"
-          }
-        >
-          <Siren size={19} />
-          <span>Emergency</span>
-        </NavLink>
+        <nav>
+          {systemMenu.map((item) => {
+            const Icon = item.icon;
 
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
-          <Settings size={19} />
-          <span>Settings</span>
-        </NavLink>
-      </nav>
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeSidebar}
+                className={({ isActive }) =>
+                  `sidebar-link ${isActive ? "active" : ""}`
+                }
+              >
+                <Icon size={19} />
+                <span>{item.name}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
 
-      <div className="sidebar-bottom">
-        <div className="support-box">
-          <Activity size={20} />
+        <div className="sidebar-status">
+          <div className="status-live-dot"></div>
+
           <div>
-            <strong>System Status</strong>
-            <small>All systems operational</small>
+            <strong>System Online</strong>
+            <span>All services operational</span>
           </div>
-          <span className="online-dot"></span>
         </div>
       </div>
     </aside>

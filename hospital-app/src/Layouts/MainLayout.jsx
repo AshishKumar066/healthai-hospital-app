@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 function MainLayout() {
   // Sidebar Dashboard par by default open rahega
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="app-layout">

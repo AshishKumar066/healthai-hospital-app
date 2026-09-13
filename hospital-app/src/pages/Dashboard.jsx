@@ -608,13 +608,10 @@ function Dashboard() {
 
       document.body.classList.toggle(
         "dashboard-nav-transparent",
-        scrollPosition > 40
+        scrollPosition > 40,
       );
 
-      document.body.classList.toggle(
-        "dashboard-nav-hide",
-        percentage >= 75
-      );
+      document.body.classList.toggle("dashboard-nav-hide", percentage >= 75);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -749,7 +746,10 @@ function Dashboard() {
 
         <StatCard
           title="Available Beds"
-          value={hospitals.reduce((total, hospital) => total + hospital.available, 0)}
+          value={hospitals.reduce(
+            (total, hospital) => total + hospital.available,
+            0,
+          )}
           icon={<Bed size={22} />}
           trend="Live"
         />
@@ -761,9 +761,7 @@ function Dashboard() {
           <div>
             <span className="section-eyebrow">NEARBY HEALTHCARE</span>
             <h2>Nearest Hospitals</h2>
-            <p>
-              Top hospitals around {selectedCity}, sorted by distance.
-            </p>
+            <p>Top hospitals around {selectedCity}, sorted by distance.</p>
           </div>
 
           <div className="hospital-slider-buttons">
@@ -791,15 +789,11 @@ function Dashboard() {
                   <Activity size={23} />
                 </div>
 
-                <span className="distance-badge">
-                  {hospital.distance}
-                </span>
+                <span className="distance-badge">{hospital.distance}</span>
               </div>
 
               <div className="hospital-card-content">
-                <div className="hospital-rating">
-                  ★ {hospital.rating}
-                </div>
+                <div className="hospital-rating">★ {hospital.rating}</div>
 
                 <h3>{hospital.name}</h3>
 
@@ -899,7 +893,7 @@ function Dashboard() {
           <div className="capacity-list">
             {hospitals.slice(0, 4).map((hospital) => {
               const percentage = Math.round(
-                (hospital.available / hospital.beds) * 100
+                (hospital.available / hospital.beds) * 100,
               );
 
               return (

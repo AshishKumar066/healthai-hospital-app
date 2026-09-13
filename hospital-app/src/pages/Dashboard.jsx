@@ -7,12 +7,14 @@ import {
   Users,
   Stethoscope,
   Bed,
+  Bot,
   Activity,
   ArrowUpRight,
 } from "lucide-react";
 
 import StatCard from "../components/StatCard";
 import StatusBadge from "../components/StatusBadge";
+import AIBot from "../components/AIBot/AIBot";
 
 const cityData = {
   Muzaffarnagar: {
@@ -918,8 +920,15 @@ function Dashboard() {
           </div>
         </div>
       </section>
+      <AIBot />
+      {/* <button
+        className="ai-bot-floating"
+        title="How can i Help you ?"
+      >
+        <Bot size={28} />
+        <span className="ai-bot-pulse"></span>
+      </button> */}
     </div>
   );
 }
-
 export default Dashboard;

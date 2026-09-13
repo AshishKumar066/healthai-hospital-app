@@ -3079,3 +3079,87 @@ td strong {
     bottom: 25px;
   }
 }
+
+/* =========================================
+   AI HEALTH ASSISTANT FLOATING BUTTON
+========================================= */
+
+.ai-bot-floating {
+  position: fixed;
+
+  right: 28px;
+  bottom: 28px;
+
+  width: 62px;
+  height: 62px;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #0f6b5c;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(15, 107, 92, 0.28);
+
+  z-index: 150;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-bot-floating:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow: 0 14px 35px rgba(15, 107, 92, 0.38);
+}
+
+/* Small animated indicator */
+
+.ai-bot-pulse {
+  position: absolute;
+
+  top: 3px;
+  right: 3px;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #42d392;
+
+  border: 2px solid #ffffff;
+
+  animation: aiBotPulse 1.8s infinite;
+}
+
+@keyframes aiBotPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 211, 146, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px rgba(66, 211, 146, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 211, 146, 0);
+  }
+}
+
+@media (max-width: 650px) {
+  .ai-bot-floating {
+    right: 18px;
+    bottom: 18px;
+
+    width: 56px;
+    height: 56px;
+  }
+}

@@ -9,4 +9,7 @@ function App() {
   );
 }
 
+// npm run dev -- --host 0.0.0.0
+
+
 export default App;

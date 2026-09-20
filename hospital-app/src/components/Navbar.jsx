@@ -74,12 +74,12 @@ function Navbar({ onMenuClick }) {
             AU
           </div>
 
-          {/* <div className="profile-info">
+          <div className="profile-info">
             <strong>Admin User</strong>
             <span>Administrator</span>
-          </div> */}
+          </div>
 
-          {/* <ChevronDown size={16} /> */}
+          <ChevronDown size={16} />
         </div>
       </div>
     </header>

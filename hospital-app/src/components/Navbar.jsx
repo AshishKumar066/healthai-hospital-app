@@ -15,6 +15,17 @@ function Navbar({ onMenuClick }) {
     navigate("/emergency");
   };
 
+
+  function Navbar({ onMenuClick }) {
+
+    const navlogin = useNavigate();
+    const userLog = () => {
+      navlogin("/login")
+    }
+
+  }
+
+
   return (
     <header className="top-navbar">
       {/* LEFT */}
@@ -73,6 +84,10 @@ function Navbar({ onMenuClick }) {
           <div className="profile-avatar">
             AU
           </div>
+
+          <button className="navbar-profile" onClick={navlogin}>
+
+          </button>
 
           <div className="profile-info">
             <strong>Admin User</strong>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import {
   Menu,
   Search,
@@ -11,25 +12,22 @@ import {
 function Navbar({ onMenuClick }) {
   const navigate = useNavigate();
 
+  // Emergency page navigation
   const handleEmergency = () => {
     navigate("/emergency");
   };
 
-
-  function Navbar({ onMenuClick }) {
-
-    const navlogin = useNavigate();
-    const userLog = () => {
-      navlogin("/login")
-    }
-
-  }
-
+  // Login page navigation
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <header className="top-navbar">
+
       {/* LEFT */}
       <div className="navbar-left">
+
         <button
           className="menu-toggle"
           onClick={onMenuClick}
@@ -51,21 +49,27 @@ function Navbar({ onMenuClick }) {
             <span>Smart Healthcare</span>
           </div>
         </div>
+
       </div>
+
 
       {/* SEARCH */}
       <div className="navbar-search">
+
         <Search size={18} />
 
         <input
           type="text"
           placeholder="Search patients, doctors, appointments..."
         />
+
       </div>
+
 
       {/* RIGHT */}
       <div className="navbar-actions">
 
+        {/* Emergency Button */}
         <button
           className="emergency-navbar-btn"
           onClick={handleEmergency}
@@ -74,20 +78,26 @@ function Navbar({ onMenuClick }) {
           <span>Emergency</span>
         </button>
 
-        <button className="navbar-icon-btn">
-          <Bell size={20} />
 
+        {/* Notification Button */}
+        <button
+          className="navbar-icon-btn"
+          aria-label="Notifications"
+        >
+          <Bell size={20} />
           <span className="notification-dot"></span>
         </button>
 
-        <div className="navbar-profile">
+
+        {/* Profile / Login */}
+        <button
+          className="navbar-profile"
+          onClick={handleLogin}
+          aria-label="Open login"
+        >
           <div className="profile-avatar">
             AU
           </div>
-
-          <button className="navbar-profile" onClick={navlogin}>
-
-          </button>
 
           <div className="profile-info">
             <strong>Admin User</strong>
@@ -95,8 +105,10 @@ function Navbar({ onMenuClick }) {
           </div>
 
           <ChevronDown size={16} />
-        </div>
+        </button>
+
       </div>
+
     </header>
   );
 }
